@@ -1,0 +1,976 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Tops American Grill, Bakery &amp; Bar: Rotterdam's hometown diner at the Five Corners since 1953. Breakfast all day, lunch, dinner, a full bar and an in-house bakery.">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Tops American Grill, Bakery &amp; Bar · Rotterdam, NY</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Libre+Franklin:wght@400;500;600;700;800&family=Big+Shoulders+Display:wght@600;800&display=swap">
+<style>
+/* Layout: the building itself. Black roof trim up top, stucco walls, stacked cornice tiers from the
+   rotunda as dividers, and the red sign lettering (white outline, black drop) for menu names. */
+:root {
+  --bg: #F2EDE3;          /* stucco */
+  --surface: #FBF8F2;
+  --stucco-deep: #E4DACA; /* cornice shadow */
+  --ink: #1A1716;         /* roof trim */
+  --muted: #675F56;
+  --line: #DCD2C2;
+  --red: #C21F2C;         /* sign red */
+  --tan: #D9C49C;         /* logo field */
+  --trim: #161413;
+  --on-trim: #F2EDE3;
+  --outline: #FFFFFF;
+
+  --f-sign: "Shrikhand", "Georgia", serif;
+  --f-body: "Libre Franklin", "Helvetica Neue", Arial, sans-serif;
+  --f-label: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+
+  --gutter-l: max(16px, env(safe-area-inset-left, 0px));
+  --gutter-r: max(16px, env(safe-area-inset-right, 0px));
+  --max: 1120px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #151312; --surface: #1F1C1A; --stucco-deep: #2A2623; --ink: #F2EDE3; --muted: #A99F92;
+    --line: #34302B; --red: #E5384A; --tan: #C7AF84; --trim: #0C0B0A; --on-trim: #F2EDE3;
+    --outline: #F2EDE3;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #151312; --surface: #1F1C1A; --stucco-deep: #2A2623; --ink: #F2EDE3; --muted: #A99F92;
+  --line: #34302B; --red: #E5384A; --tan: #C7AF84; --trim: #0C0B0A; --on-trim: #F2EDE3;
+  --outline: #F2EDE3;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { animation: none !important; transition: none !important; } }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+body::before {
+  content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px);
+  z-index: 10; background: var(--trim);
+}
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--red); outline-offset: 3px; border-radius: 4px; }
+h1, h2, h3 { text-wrap: balance; margin: 0; }
+p { margin: 0; }
+
+.wrap {
+  max-width: var(--max);
+  margin-inline: auto;
+  padding-left: var(--gutter-l);
+  padding-right: var(--gutter-r);
+}
+.label {
+  font-family: var(--f-label);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  font-size: .95rem;
+  color: var(--red);
+}
+
+/* Rotunda cornice: three stacked stucco tiers */
+.cornice {
+  height: 22px;
+  background:
+    linear-gradient(var(--bg) 0 6px, var(--stucco-deep) 6px 7px, var(--bg) 7px 13px, var(--stucco-deep) 13px 14px, var(--bg) 14px 21px, var(--line) 21px 22px);
+}
+
+/* Header */
+.top {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 9;
+  background: var(--trim); color: var(--on-trim);
+}
+.top .wrap { display: flex; align-items: center; gap: 24px; padding-block: 10px; }
+.logo { display: block; line-height: 0; }
+.logo img { height: 56px; width: auto; border-radius: 4px; }
+.nav { display: flex; gap: 22px; margin-left: auto; flex-wrap: wrap; }
+.nav a { text-decoration: none; font-weight: 600; font-size: .92rem; opacity: .88; }
+.nav a:hover { opacity: 1; text-decoration: underline; text-decoration-color: var(--red); text-underline-offset: 5px; text-decoration-thickness: 2px; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  font: 700 .95rem/1 var(--f-body);
+  padding: 13px 20px; border-radius: 999px; text-decoration: none;
+  border: 2px solid transparent; cursor: pointer;
+  transition: transform .15s ease, background .15s ease;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn-red { background: var(--red); color: #fff; }
+.btn-line { border-color: var(--ink); color: var(--ink); background: transparent; }
+.btn-white { border-color: rgba(255,255,255,.85); color: #fff; background: transparent; }
+.top .btn { padding: 10px 16px; font-size: .88rem; }
+@media (max-width: 820px) { .nav { display: none; } .top .btn { margin-left: auto; } .logo img { height: 48px; } }
+
+/* Hero: full-bleed slideshow, dark fade over the left for the headline (same in both themes) */
+.hero {
+  position: relative; overflow: hidden; background: #0B0A09; color: #fff;
+  min-height: clamp(460px, 50vw, 640px);
+  display: flex; align-items: center;
+}
+.slide {
+  position: absolute; inset: 0; margin: 0;
+  opacity: 0; transition: opacity 1.1s ease;
+}
+.slide.is-on { opacity: 1; }
+.slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+/* Keep the round corner right of the headline */
+.slide img.pos-night { object-position: 80% 50%; }
+.slide img.pos-day { object-position: 35% 50%; }
+@media (max-width: 700px) {
+  .slide img.pos-night { object-position: 61% 50%; }
+  .slide img.pos-day { object-position: 56% 50%; }
+}
+.hero::after {
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(11,10,9,.92) 0%, rgba(11,10,9,.82) 22%, rgba(11,10,9,.55) 42%, rgba(11,10,9,.18) 62%, rgba(11,10,9,0) 78%),
+    linear-gradient(0deg, rgba(11,10,9,.55) 0%, rgba(11,10,9,0) 28%);
+}
+.hero .wrap { position: relative; z-index: 2; width: 100%; padding-block: 72px 96px; }
+.hero-copy { max-width: 560px; display: grid; gap: 18px; }
+.hero .label { color: #F4C9A0; letter-spacing: .14em; }
+.hero h1 {
+  font-family: var(--f-body); font-weight: 800;
+  font-size: clamp(2.3rem, 5.4vw, 4.2rem); line-height: 1.02; letter-spacing: -.02em;
+}
+/* The logo's own "Tops" wordmark, redrawn at 1470px from their artwork, on its own line */
+.hero h1 { display: grid; gap: 14px; justify-items: start; }
+.wordmark { display: block; width: clamp(220px, 30vw, 380px); height: auto; margin-left: -4px; }
+.hero-copy p { font-size: 1.15rem; line-height: 1.55; color: rgba(255,255,255,.86); max-width: 42ch; }
+.hero .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 4px; }
+
+.slide-bar {
+  position: absolute; z-index: 2; left: 0; right: 0; bottom: 0;
+}
+.slide-bar .wrap {
+  display: flex; align-items: center; justify-content: flex-end; gap: 14px;
+  padding-block: 0 22px;
+}
+.slide-cap { font-size: .88rem; color: rgba(255,255,255,.88); text-align: right; min-width: 0; text-shadow: 0 1px 8px rgba(0,0,0,.6); }
+.dots { display: flex; gap: 6px; }
+.dot { width: 9px; height: 9px; padding: 0; border-radius: 999px; border: 0; background: rgba(255,255,255,.45); cursor: pointer; transition: width .3s ease, background .3s ease; }
+.dot[aria-current="true"] { width: 26px; background: #fff; }
+.sbtn {
+  width: 38px; height: 38px; border-radius: 999px; border: 1px solid rgba(255,255,255,.4);
+  background: rgba(0,0,0,.35); color: #fff; font-size: 1.15rem; line-height: 1; cursor: pointer; flex: none;
+}
+.sbtn:hover { background: rgba(0,0,0,.6); }
+@media (max-width: 700px) {
+  .hero { min-height: 560px; align-items: flex-end; }
+  .hero::after {
+    background: linear-gradient(0deg, rgba(11,10,9,.95) 0%, rgba(11,10,9,.8) 40%, rgba(11,10,9,.25) 72%, rgba(11,10,9,.1) 100%);
+  }
+  .hero .wrap { padding-block: 120px 84px; }
+  .slide-bar .wrap { justify-content: space-between; }
+  .slide-cap { display: none; }
+}
+
+/* Intro under the hero */
+.intro .wrap {
+  display: grid; grid-template-columns: 1.1fr .9fr; gap: 56px; align-items: center;
+  padding-block: 56px 72px;
+}
+.intro-copy { min-width: 0; display: grid; gap: 18px; }
+.intro-copy .lede { font-size: 1.2rem; line-height: 1.55; max-width: 44ch; }
+.facts { display: flex; flex-wrap: wrap; gap: 6px 28px; color: var(--muted); font-size: .97rem; }
+.facts b { color: var(--ink); }
+
+/* Letterboard */
+.board {
+  background: repeating-linear-gradient(180deg, #1B1A1A 0 9px, #050505 9px 10px);
+  border: 10px solid var(--trim);
+  outline: 1px solid var(--line);
+  border-radius: 6px;
+  box-shadow: 0 18px 40px rgba(0,0,0,.25);
+  padding: 22px 20px 26px;
+  color: #F1EFE8;
+  font-family: var(--f-label); font-weight: 800; text-transform: uppercase; text-align: center;
+  min-width: 0;
+}
+.board .bh { font-size: 1.05rem; letter-spacing: .3em; color: #F07480; }
+.board ul { list-style: none; margin: 14px 0 0; padding: 0; display: grid; gap: 10px; }
+.board li { font-size: clamp(1.15rem, 2.3vw, 1.5rem); letter-spacing: .12em; line-height: 1.15; }
+.board li span { display: block; font-size: .72em; letter-spacing: .16em; opacity: .7; font-weight: 600; }
+.board .rule { height: 1px; background: rgba(241,239,232,.22); margin: 4px 30%; }
+@media (max-width: 860px) { .intro .wrap { grid-template-columns: 1fr; gap: 36px; padding-block: 40px 56px; } }
+
+/* Sections */
+.section { padding-block: 76px; }
+.sec-head { display: grid; gap: 10px; margin-bottom: 40px; max-width: 640px; }
+.sec-head h2, .h2 { font-family: var(--f-body); font-weight: 800; font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.1; letter-spacing: -.015em; }
+.sec-head p { color: var(--muted); font-size: 1.05rem; }
+
+/* Sign lettering: red, white outline, black drop, like the sign over the door */
+.signtype {
+  font-family: var(--f-sign); font-weight: 400; color: var(--red); line-height: 1;
+  text-shadow:
+    -1.5px -1.5px 0 var(--outline), 1.5px -1.5px 0 var(--outline),
+    -1.5px 1.5px 0 var(--outline), 1.5px 1.5px 0 var(--outline),
+    4px 4px 0 var(--trim);
+}
+
+/* Menu */
+.meals { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.meal {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+  overflow: hidden; display: grid; grid-template-rows: auto 1fr; min-width: 0;
+}
+.meal-photo { aspect-ratio: 16 / 10; overflow: hidden; background: var(--stucco-deep); border-bottom: 6px solid var(--trim); }
+.meal-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.meal-body { padding: 24px 26px; display: grid; grid-template-rows: auto auto 1fr auto; gap: 14px; }
+.meal-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+.meal h3 { font-size: 2.1rem; }
+.tag { font-family: var(--f-label); font-weight: 800; font-size: .8rem; letter-spacing: .1em; text-transform: uppercase;
+  background: var(--tan); color: #1A1716; padding: 4px 10px; border-radius: 999px; white-space: nowrap; }
+.meal-body > p { color: var(--muted); }
+.dishes { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; align-content: start; }
+.dishes li { display: flex; gap: 10px; align-items: baseline; font-weight: 600; }
+.dishes li::after { content: ""; flex: 1; border-bottom: 2px dotted var(--line); transform: translateY(-4px); order: 1; min-width: 12px; }
+.dishes li em { order: 2; font-style: normal; font-weight: 500; font-size: .85rem; color: var(--muted); white-space: nowrap; }
+.more { font-weight: 700; color: var(--red); text-decoration: none; }
+.more:hover { text-decoration: underline; }
+.menu-cta { display: flex; flex-wrap: wrap; gap: 12px 16px; margin-top: 32px; align-items: center; }
+.menu-cta p { color: var(--muted); font-size: .95rem; }
+#order { scroll-margin-top: 96px; }
+@media (max-width: 900px) { .meals { grid-template-columns: 1fr; } }
+
+/* Full menu & prices (kept in the page's database, edited by staff) */
+.fullmenu { margin-top: 56px; padding-top: 32px; border-top: 2px solid var(--ink); }
+.fm-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap; margin-bottom: 20px; }
+.fm-title { font-family: var(--f-body); font-weight: 800; font-size: clamp(1.4rem, 3vw, 1.9rem); line-height: 1.15; }
+.fm-sub { color: var(--muted); font-size: .95rem; margin-top: 4px; }
+.fm-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+.fm-tab { font: 600 .92rem/1 var(--f-body); padding: 10px 16px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; }
+.fm-tab:hover { border-color: var(--ink); }
+.fm-tab[aria-selected="true"] { background: var(--red); border-color: var(--red); color: #fff; }
+.fm-tab .n { opacity: .75; margin-left: 6px; font-variant-numeric: tabular-nums; }
+.fm-status { min-height: 1.5em; color: var(--muted); font-size: .92rem; margin-bottom: 4px; }
+.fm-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0 48px; }
+.fm-item { padding-block: 14px; border-bottom: 1px solid var(--line); min-width: 0; display: grid; gap: 4px; align-content: start; }
+.fm-line { display: flex; align-items: baseline; gap: 10px; }
+.fm-name { font-weight: 700; font-size: 1.05rem; min-width: 0; overflow-wrap: anywhere; }
+.fm-dots { flex: 1; min-width: 16px; border-bottom: 2px dotted var(--line); transform: translateY(-4px); }
+.fm-price { font-weight: 700; color: var(--red); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.fm-desc { color: var(--muted); font-size: .95rem; overflow-wrap: anywhere; }
+.fm-item.is-out .fm-name, .fm-item.is-out .fm-price { text-decoration: line-through; opacity: .6; }
+.fm-badge { justify-self: start; font-family: var(--f-label); font-weight: 800; font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; background: var(--tan); color: #1A1716; padding: 3px 8px; border-radius: 999px; }
+.fm-tools { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 6px; }
+.fm-small { font: 600 .82rem/1 var(--f-body); border: 1px solid var(--line); background: transparent; color: var(--ink); padding: 8px 12px; border-radius: 999px; cursor: pointer; }
+.fm-small:hover { border-color: var(--ink); }
+.fm-small.danger { color: var(--red); border-color: var(--red); }
+.fm-empty { grid-column: 1 / -1; color: var(--muted); padding-block: 16px; max-width: 60ch; }
+.fm-form { grid-column: 1 / -1; display: grid; grid-template-columns: 2fr 1fr; gap: 12px 16px; padding: 20px; margin-block: 10px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; }
+.fm-form label { display: grid; gap: 6px; font-weight: 600; font-size: .9rem; }
+.fm-form .full { grid-column: 1 / -1; }
+.fm-form input[type="text"], .fm-form input[type="number"] { font: 500 1rem/1.3 var(--f-body); padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--ink); width: 100%; min-width: 0; }
+.fm-form label.check { display: flex; align-items: center; gap: 8px; }
+.fm-form .row { grid-column: 1 / -1; display: flex; gap: 10px; flex-wrap: wrap; }
+.fm-add { grid-column: 1 / -1; justify-self: start; margin-top: 14px; }
+@media (max-width: 760px) { .fm-list { grid-template-columns: 1fr; } }
+@media (max-width: 560px) { .fm-form { grid-template-columns: 1fr; } }
+
+/* Bakery */
+.bakery { background: var(--surface); }
+.bakery .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+.bakery-copy { min-width: 0; display: grid; gap: 18px; }
+.bakery-copy .big { font-size: 1.2rem; line-height: 1.55; }
+.bakery-copy .note { color: var(--muted); }
+.case { list-style: none; margin: 4px 0 0; padding: 0; display: grid; border-top: 2px solid var(--trim); }
+.case li { display: flex; justify-content: space-between; gap: 16px; padding-block: 12px; border-bottom: 1px solid var(--line); }
+.case b { font-weight: 700; }
+.case span { color: var(--muted); font-size: .95rem; text-align: right; }
+.bakery-photo { margin: 0; min-width: 0; display: grid; gap: 10px; }
+.bakery-photo img { width: 100%; height: auto; display: block; border-radius: 14px; }
+.bakery-photo figcaption { color: var(--muted); font-size: .9rem; }
+@media (max-width: 860px) { .bakery .wrap { grid-template-columns: 1fr; gap: 32px; } }
+
+/* Gallery */
+.gallery { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+.g-item {
+  position: relative; padding: 0; border: 0; border-radius: 10px; overflow: hidden; cursor: zoom-in;
+  aspect-ratio: 1; background: var(--stucco-deep); min-width: 0;
+}
+.g-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s ease; }
+.g-item:hover img { transform: scale(1.04); }
+.g-big { grid-column: span 2; grid-row: span 2; }
+.g-follow { display: flex; flex-wrap: wrap; gap: 12px 16px; align-items: center; margin-top: 28px; }
+.g-follow p { color: var(--muted); }
+@media (max-width: 760px) { .gallery { grid-template-columns: repeat(2, 1fr); gap: 8px; } }
+
+.lightbox { border: 0; padding: 0; background: transparent; max-width: min(92vw, 960px); width: 100%; }
+.lightbox::backdrop { background: rgba(8,7,6,.88); }
+.lb-inner { position: relative; display: grid; gap: 12px; }
+.lb-inner img { width: 100%; max-height: 78vh; object-fit: contain; display: block; border-radius: 8px; }
+.lb-foot { display: flex; align-items: center; gap: 12px; color: #fff; }
+.lb-foot p { flex: 1; min-width: 0; font-size: .95rem; }
+.lb-close { position: absolute; top: 10px; right: 10px; }
+
+/* Story */
+.story { display: grid; grid-template-columns: .9fr 1.1fr; gap: 56px; }
+.quote { margin: 0; min-width: 0; }
+.quote p { font-family: var(--f-sign); font-size: clamp(1.5rem, 3vw, 2.15rem); line-height: 1.25; color: var(--ink); }
+.quote cite { display: block; margin-top: 18px; font: 600 .95rem/1.4 var(--f-body); color: var(--muted); font-style: normal; }
+.timeline { list-style: none; margin: 0; padding: 0; display: grid; min-width: 0; }
+.timeline li { display: grid; grid-template-columns: 92px 1fr; gap: 20px; padding-block: 18px; border-top: 1px solid var(--line); }
+.timeline li:last-child { border-bottom: 1px solid var(--line); }
+.yr { font-family: var(--f-label); font-weight: 800; font-size: 1.7rem; line-height: 1; color: var(--red); font-variant-numeric: tabular-nums; }
+.timeline b { display: block; margin-bottom: 2px; }
+.timeline p { color: var(--muted); font-size: .97rem; }
+@media (max-width: 860px) { .story { grid-template-columns: 1fr; gap: 40px; } .timeline li { grid-template-columns: 72px 1fr; } }
+
+/* Events: black trim band */
+.events { background: var(--trim); color: var(--on-trim); }
+.events .wrap { display: grid; grid-template-columns: 1.3fr 1fr; gap: 40px; align-items: center; padding-block: 64px; }
+.events .label { color: #F07480; display: block; margin-bottom: 8px; }
+.events p { margin-top: 12px; opacity: .88; max-width: 52ch; }
+.events-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.events-list li { padding: 14px 18px; border: 1px solid rgba(242,237,227,.2); border-radius: 10px; font-weight: 600; }
+.events-list .events-photo { padding: 0; border: 0; overflow: hidden; aspect-ratio: 3 / 2; }
+.events-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+@media (max-width: 860px) { .events .wrap { grid-template-columns: 1fr; } }
+
+/* Visit */
+.visit { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 26px; display: grid; gap: 12px; align-content: start; min-width: 0; }
+.panel .label { color: var(--muted); }
+.panel .big { font-size: 1.25rem; font-weight: 700; line-height: 1.35; }
+.panel p { color: var(--muted); }
+.copy { font: 600 .82rem/1 var(--f-body); border: 1px solid var(--line); background: transparent; color: var(--ink);
+  padding: 8px 12px; border-radius: 999px; cursor: pointer; justify-self: start; }
+.copy:hover { border-color: var(--ink); }
+.socials { display: flex; flex-wrap: wrap; gap: 10px; }
+.socials a { text-decoration: none; font-weight: 600; font-size: .92rem; border: 1px solid var(--line); padding: 8px 14px; border-radius: 999px; }
+.socials a:hover { border-color: var(--ink); }
+@media (max-width: 900px) { .visit { grid-template-columns: 1fr; } }
+
+/* Footer */
+footer { background: var(--trim); color: var(--on-trim); }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 20px 40px; justify-content: space-between; align-items: center; padding-block: 36px; font-size: .92rem; }
+footer .logo img { height: 72px; }
+footer a { opacity: .85; }
+footer .fl { display: flex; flex-wrap: wrap; gap: 18px; }
+
+/* Mobile action bar */
+.mbar { display: none; }
+@media (max-width: 640px) {
+  .mbar {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 9;
+    background: var(--surface); border-top: 1px solid var(--line);
+    padding: 10px var(--gutter-r) calc(10px + env(safe-area-inset-bottom, 0px)) var(--gutter-l);
+  }
+  footer { padding-bottom: 76px; }
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#home"><img src="images/logo.jpg" alt="Tops American Grill, Bakery &amp; Bar" width="200" height="125"></a>
+    <nav class="nav" aria-label="Main">
+      <a href="#menu">Menu</a>
+      <a href="#bakery">Bakery</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#story">Our Story</a>
+      <a href="#events">Parties</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <a class="btn btn-red" href="#order">Order online</a>
+  </div>
+</header>
+
+<main id="home">
+  <section class="hero" id="hero" aria-roledescription="carousel" aria-label="Photos from Tops">
+    <figure class="slide is-on"><img class="pos-night" src="images/building-night-wide.jpg" alt="Tops lit up at night at the Five Corners"></figure>
+    <figure class="slide"><img class="pos-day" src="images/building-day.jpg" alt="The round stucco corner of Tops under a blue sky" loading="lazy"></figure>
+    <figure class="slide"><img src="images/hd-dining.jpg" alt="The Tops dining room, with patterned booths, palm trees and the bakery counter" loading="lazy"></figure>
+    <figure class="slide"><img src="images/hd-benedict.jpg" alt="Eggs Benedict with home fries" loading="lazy" style="object-position: 65% 50%"></figure>
+    <figure class="slide"><img src="images/hd-club.jpg" alt="Turkey club on toasted wheat" loading="lazy" style="object-position: 60% 50%"></figure>
+    <figure class="slide"><img src="images/hd-pasta.jpg" alt="Penne in a creamy tomato sauce with peas and parsley" loading="lazy" style="object-position: 60% 50%"></figure>
+    <figure class="slide"><img src="images/hd-montecristo.jpg" alt="Grilled ham and turkey sandwich with potato wedges" loading="lazy" style="object-position: 65% 50%"></figure>
+
+    <div class="wrap">
+      <div class="hero-copy">
+        <span class="label">Three generations at the Five Corners · Since 1953</span>
+        <h1><img class="wordmark" src="images/tops-wordmark.png" alt="Tops" width="1470" height="606"><span>Rotterdam's hometown diner.</span></h1>
+        <p>Breakfast all day, steaks and seafood at night, and every dessert baked in our own kitchen. Pull up a booth or order online.</p>
+        <div class="actions">
+          <a class="btn btn-red" href="#menu">See the menu</a>
+          <a class="btn btn-white" href="#order">Order online</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide-bar">
+      <div class="wrap">
+        <p class="slide-cap" id="slide-cap" aria-live="polite">Tops lit up at night at the Five Corners</p>
+        <button class="sbtn" id="prev" type="button" aria-label="Previous photo">‹</button>
+        <div class="dots" id="dots"></div>
+        <button class="sbtn" id="next" type="button" aria-label="Next photo">›</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="intro">
+    <div class="wrap">
+      <div class="intro-copy">
+        <span class="label">Rotterdam's hometown diner</span>
+        <p class="lede">The Christou family has served this corner since 1953. The building has changed three times. The idea hasn't: good food made from scratch, fair prices, and a table for everyone.</p>
+        <div class="facts">
+          <span><b>351 Duanesburg Rd</b>, Rotterdam</span>
+          <span><b>(518) 355-9864</b></span>
+        </div>
+      </div>
+      <aside class="board" aria-label="Today's board">
+        <div class="bh">Today at Tops</div>
+        <ul>
+          <li>Breakfast all day<span>Omelets · home fries · hash</span></li>
+          <li class="rule" aria-hidden="true"></li>
+          <li>Soup of the day<span>Made here, every day</span></li>
+          <li class="rule" aria-hidden="true"></li>
+          <li>Friday fish fry<span>All you can eat</span></li>
+          <li class="rule" aria-hidden="true"></li>
+          <li>Fresh from the bakery<span>Ask what came out of the oven</span></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <div class="cornice" aria-hidden="true"></div>
+
+  <section class="section" id="menu">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="label">The menu</span>
+        <h2>Breakfast, lunch and dinner, all made in our kitchen.</h2>
+        <p>Big portions, fair prices, and a regular's order for every time of day.</p>
+      </div>
+      <div class="meals">
+        <article class="meal">
+          <div class="meal-photo"><img src="images/hd-benedict.jpg" alt="Eggs Benedict with home fries" loading="lazy"></div>
+          <div class="meal-body">
+            <div class="meal-top"><h3 class="signtype">Breakfast</h3><span class="tag">Served all day</span></div>
+            <p>Eggs any way, griddle classics and the home fries regulars ask for by name.</p>
+            <ul class="dishes">
+              <li>Corned beef hash<em>homemade</em></li>
+              <li>Loaded omelet<em>with home fries</em></li>
+              <li>Pancakes &amp; French toast<em>griddle</em></li>
+              <li>Eggs Benedict<em>with home fries</em></li>
+            </ul>
+            <a class="more" href="https://topsrotterdam.com/wp-content/uploads/2020/06/tops-breakfast-menu-6-17-20.pdf">Breakfast menu →</a>
+          </div>
+        </article>
+        <article class="meal">
+          <div class="meal-photo"><img src="images/hd-club.jpg" alt="Turkey club on toasted wheat" loading="lazy"></div>
+          <div class="meal-body">
+            <div class="meal-top"><h3 class="signtype">Lunch</h3><span class="tag">Sandwiches · soups</span></div>
+            <p>Burgers, stacked sandwiches and soup made in-house each morning.</p>
+            <ul class="dishes">
+              <li>Bacon cheeseburger<em>onion rings</em></li>
+              <li>Turkey club &amp; BLT<em>on toast</em></li>
+              <li>Reuben<em>grilled on rye</em></li>
+              <li>Homemade soups<em>daily</em></li>
+            </ul>
+            <a class="more" href="https://topsrotterdam.com/wp-content/uploads/2021/12/2021-2022-New-Menu-Whole-Menu.pdf">Lunch menu →</a>
+          </div>
+        </article>
+        <article class="meal">
+          <div class="meal-photo"><img src="images/hd-pasta.jpg" alt="Penne in a creamy tomato sauce with peas and parsley" loading="lazy"></div>
+          <div class="meal-body">
+            <div class="meal-top"><h3 class="signtype">Dinner</h3><span class="tag">Full bar</span></div>
+            <p>Steaks, fresh seafood, risotto and pasta, plus the full diner menu and a full bar.</p>
+            <ul class="dishes">
+              <li>Steaks<em>from the grill</em></li>
+              <li>Fresh seafood<em>shrimp &amp; more</em></li>
+              <li>Risotto &amp; pasta<em>house dishes</em></li>
+              <li>Friday fish fry<em>all you can eat</em></li>
+            </ul>
+            <a class="more" href="https://topsrotterdam.com/wp-content/uploads/2021/12/2021-2022-New-Menu-Whole-Menu.pdf">Dinner menu →</a>
+          </div>
+        </article>
+      </div>
+      <div class="menu-cta" id="order">
+        <a class="btn btn-red" href="https://www.grubhub.com/restaurant/tops-american-grill-bakery%E2%80%93bar-351-duanesburg-rd-schenectady/1734361">Order on Grubhub</a>
+        <a class="btn btn-red" href="https://www.doordash.com/store/tops-american-grill-bakery-&amp;-bar-rotterdam-310845/">Order on DoorDash</a>
+        <p>Takeout and delivery through Grubhub or DoorDash. Call ahead for big orders.</p>
+      </div>
+
+      <div class="fullmenu" id="prices">
+        <div class="fm-head">
+          <div>
+            <h3 class="fm-title">Full menu &amp; prices</h3>
+            <p class="fm-sub" id="fm-sub">Kept up to date by our staff.</p>
+          </div>
+          <button class="btn btn-line" id="fm-edit" type="button" hidden>Edit menu</button>
+        </div>
+        <div class="fm-tabs" id="fm-tabs" role="tablist" aria-label="Menu sections"></div>
+        <p class="fm-status" id="fm-status" role="status"></p>
+        <ul class="fm-list" id="fm-list">
+          <li class="fm-empty">Loading today's menu and prices. You can also open the <a class="more" href="https://topsrotterdam.com/wp-content/uploads/2021/12/2021-2022-New-Menu-Whole-Menu.pdf">printed menu (PDF)</a>.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bakery" id="bakery">
+    <div class="wrap">
+      <div class="bakery-copy">
+        <span class="label">The bakery</span>
+        <h2 class="h2">Every dessert is baked right here.</h2>
+        <p class="big">Our pastry chef has run the Tops bakery since 2006. Cheesecakes, layer cakes, pastries and some of our breads all come out of our own ovens.</p>
+        <ul class="case">
+          <li><b>Cakes &amp; cheesecakes</b><span>Whole or by the slice</span></li>
+          <li><b>Pastries</b><span>Baked fresh each morning</span></li>
+          <li><b>House breads</b><span>On your plate and to go</span></li>
+        </ul>
+        <p class="note">Need a cake for a birthday or a tray for the office? Call us and we'll talk it through.</p>
+      </div>
+      <figure class="bakery-photo">
+        <img src="images/food-cheesecake.jpg" alt="Slice of strawberry cheesecake with whipped cream and white chocolate drizzle" width="640" height="411" loading="lazy">
+        <figcaption>Strawberry cheesecake, made in the Tops bakery.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <div class="cornice" aria-hidden="true"></div>
+
+  <section class="section" id="gallery">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="label">Gallery</span>
+        <h2>Straight from our kitchen.</h2>
+        <p>A few favorites from our Instagram. Tap any photo to see it bigger.</p>
+      </div>
+      <div class="gallery" id="gallery-grid">
+        <button class="g-item g-big" type="button"><img src="images/hd-bakerycase.jpg" alt="The bakery case and the long row of booths inside Tops" loading="lazy"></button>
+        <button class="g-item" type="button"><img src="images/hd-pasta.jpg" alt="Penne in a creamy tomato sauce with peas and parsley" loading="lazy"></button>
+        <button class="g-item" type="button"><img src="images/food-cheesecake.jpg" alt="Strawberry cheesecake from the Tops bakery" loading="lazy"></button>
+        <button class="g-item" type="button"><img src="images/building-night.jpg" alt="The Tops building lit up at night at the Five Corners" loading="lazy"></button>
+        <button class="g-item" type="button"><img src="images/hd-benedict.jpg" alt="Eggs Benedict with home fries" loading="lazy"></button>
+        <button class="g-item" type="button"><img src="images/food-burger.jpg" alt="Bacon cheeseburger with onion rings and potato wedges" loading="lazy"></button>
+        <button class="g-item" type="button"><img src="images/hd-club.jpg" alt="Turkey club on toasted wheat" loading="lazy"></button>
+      </div>
+      <div class="g-follow">
+        <a class="btn btn-line" href="https://www.instagram.com/topsrotterdam">More on Instagram</a>
+        <a class="btn btn-line" href="https://www.facebook.com/TopsRotterdam/photos">Photos on Facebook</a>
+      </div>
+    </div>
+  </section>
+
+  <dialog class="lightbox" id="lightbox" aria-label="Photo viewer">
+    <div class="lb-inner">
+      <img id="lb-img" src="images/hd-benedict.jpg" alt="">
+      <button class="sbtn lb-close" id="lb-close" type="button" aria-label="Close">✕</button>
+      <div class="lb-foot">
+        <button class="sbtn" id="lb-prev" type="button" aria-label="Previous photo">‹</button>
+        <p id="lb-cap"></p>
+        <button class="sbtn" id="lb-next" type="button" aria-label="Next photo">›</button>
+      </div>
+    </div>
+  </dialog>
+
+  <section class="section" id="story">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="label">Our story</span>
+        <h2>One family, one corner, three buildings.</h2>
+      </div>
+      <div class="story">
+        <blockquote class="quote">
+          <p>“We focus on quality, and we usually get it right, and if we don't get it right, we make it right.”</p>
+          <cite>Evan Christou, third-generation owner</cite>
+        </blockquote>
+        <ol class="timeline">
+          <li><span class="yr">1930s</span><div><b>The Sodium Diner</b><p>A converted rail car opens at the Five Corners in Rotterdam.</p></div></li>
+          <li><span class="yr">1953</span><div><b>The family takes over</b><p>The Christou family buys the diner and names it Tops, after the New Jersey diner where a relative once worked.</p></div></li>
+          <li><span class="yr">1960</span><div><b>A new diner car</b><p>A modular diner replaces the old rail car and serves Rotterdam for 46 years.</p></div></li>
+          <li><span class="yr">1969</span><div><b>The second generation</b><p>Brothers Nick, Jim and Evan's father take over the business together.</p></div></li>
+          <li><span class="yr">1987</span><div><b>Evan joins</b><p>Evan Christou starts in the family business. He runs it today.</p></div></li>
+          <li><span class="yr">2006</span><div><b>Tops American Grill, Bakery &amp; Bar</b><p>The building you see today goes up on the same lot, with a full bakery and bar.</p></div></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="events" id="events">
+    <div class="wrap">
+      <div>
+        <span class="label">Parties &amp; community</span>
+        <h2 class="h2">Bring the whole family. Bring the whole team.</h2>
+        <p>Our back room closes off for private parties, showers, team dinners and holiday meals. Reservations aren't required, but for a big group, call ahead and we'll have the tables ready.</p>
+      </div>
+      <ul class="events-list">
+        <li class="events-photo"><img src="images/hd-backroom.jpg" alt="The private back room, framed by red curtains, with a blue-tiled fireplace" loading="lazy"></li>
+        <li>Private back room for events</li>
+        <li>Holiday specials, like Mother's Day dinner</li>
+        <li>Fundraisers &amp; donation drives for local groups</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="visit">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="label">Visit</span>
+        <h2>Look for the round building on Route 7.</h2>
+      </div>
+      <div class="visit">
+        <div class="panel">
+          <span class="label">Address</span>
+          <p class="big">351 Duanesburg Rd<br>Schenectady, NY 12306</p>
+          <p>At the Five Corners in Rotterdam. Parking on site.</p>
+          <a class="more" href="https://www.google.com/maps/search/?api=1&amp;query=351+Duanesburg+Rd+Schenectady+NY+12306">Get directions →</a>
+        </div>
+        <div class="panel">
+          <span class="label">Call us</span>
+          <p class="big" id="phone">(518) 355-9864</p>
+          <p>Call for today's hours, takeout and large-party bookings.</p>
+          <button class="copy" id="copy-phone" type="button">Copy number</button>
+        </div>
+        <div class="panel">
+          <span class="label">Follow along</span>
+          <p class="big">Specials and closings go up on social media first.</p>
+          <div class="socials">
+            <a href="https://www.facebook.com/TopsRotterdam/">Facebook</a>
+            <a href="https://www.instagram.com/topsrotterdam">Instagram</a>
+            <a href="https://twitter.com/topsrotterdam">X</a>
+          </div>
+          <p>Now hiring. <a class="more" href="http://topsrotterdam.com/wp-content/uploads/2017/10/Employment-Application.pdf">Job application →</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="logo" href="#home"><img src="images/logo.jpg" alt="Tops" width="200" height="125"></a>
+    <div class="fl">
+      <a href="#menu">Menu</a><a href="#bakery">Bakery</a><a href="#gallery">Gallery</a><a href="#story">Our Story</a><a href="#visit">Visit</a>
+    </div>
+    <span>© Tops American Grill, Bakery &amp; Bar · Rotterdam, NY</span>
+  </div>
+</footer>
+
+<div class="mbar">
+  <a class="btn btn-line" href="#visit">Call or visit</a>
+  <a class="btn btn-red" href="#order">Order online</a>
+</div>
+
+<script>
+  // Hero slideshow
+  (function () {
+    var hero = document.getElementById('hero');
+    var slides = Array.prototype.slice.call(hero.querySelectorAll('.slide'));
+    var cap = document.getElementById('slide-cap');
+    var dotsEl = document.getElementById('dots');
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var i = 0, timer = null;
+
+    var dots = slides.map(function (s, n) {
+      var d = document.createElement('button');
+      d.className = 'dot'; d.type = 'button';
+      d.setAttribute('aria-label', 'Show photo ' + (n + 1));
+      d.addEventListener('click', function () { go(n); restart(); });
+      dotsEl.appendChild(d);
+      return d;
+    });
+
+    function go(n) {
+      i = (n + slides.length) % slides.length;
+      slides.forEach(function (s, k) { s.classList.toggle('is-on', k === i); });
+      dots.forEach(function (d, k) { d.setAttribute('aria-current', k === i ? 'true' : 'false'); });
+      cap.textContent = slides[i].querySelector('img').alt;
+    }
+    function restart() {
+      clearInterval(timer);
+      if (!reduce) timer = setInterval(function () { go(i + 1); }, 5500);
+    }
+    document.getElementById('prev').addEventListener('click', function () { go(i - 1); restart(); });
+    document.getElementById('next').addEventListener('click', function () { go(i + 1); restart(); });
+    hero.addEventListener('mouseenter', function () { clearInterval(timer); });
+    hero.addEventListener('mouseleave', restart);
+    go(0); restart();
+  })();
+
+  // Gallery lightbox
+  (function () {
+    var items = Array.prototype.slice.call(document.querySelectorAll('#gallery-grid .g-item img'));
+    var box = document.getElementById('lightbox');
+    var img = document.getElementById('lb-img');
+    var cap = document.getElementById('lb-cap');
+    var i = 0;
+    function show(n) {
+      i = (n + items.length) % items.length;
+      img.src = items[i].getAttribute('src');
+      img.alt = items[i].alt;
+      cap.textContent = items[i].alt;
+    }
+    items.forEach(function (el, n) {
+      el.parentNode.addEventListener('click', function () {
+        show(n);
+        if (box.showModal) box.showModal(); else box.setAttribute('open', '');
+      });
+    });
+    document.getElementById('lb-prev').addEventListener('click', function () { show(i - 1); });
+    document.getElementById('lb-next').addEventListener('click', function () { show(i + 1); });
+    document.getElementById('lb-close').addEventListener('click', function () { box.close ? box.close() : box.removeAttribute('open'); });
+    box.addEventListener('click', function (e) { if (e.target === box) box.close(); });
+    box.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft') show(i - 1);
+      if (e.key === 'ArrowRight') show(i + 1);
+    });
+  })();
+
+  // Full menu & prices: items live in the page's database at data/menu/items; editors change them here
+  (function () {
+    var SECTIONS = [['breakfast', 'Breakfast'], ['lunch', 'Lunch'], ['dinner', 'Dinner'], ['bakery', 'Bakery & desserts'], ['sides', 'Sides & drinks']];
+    var PDF = 'https://topsrotterdam.com/wp-content/uploads/2021/12/2021-2022-New-Menu-Whole-Menu.pdf';
+    var tabsEl = document.getElementById('fm-tabs');
+    var listEl = document.getElementById('fm-list');
+    var statusEl = document.getElementById('fm-status');
+    var subEl = document.getElementById('fm-sub');
+    var editBtn = document.getElementById('fm-edit');
+    var col = null;
+    var state = { tab: 'breakfast', items: [], ready: false, live: false, canEdit: false, editMode: false, editing: null, confirmDel: null, saving: false };
+
+    try {
+      var saved = localStorage.getItem('tops-menu-tab');
+      if (saved && SECTIONS.some(function (s) { return s[0] === saved; })) state.tab = saved;
+    } catch (e) {}
+
+    function h(tag, props, kids) {
+      var el = document.createElement(tag);
+      if (props) Object.keys(props).forEach(function (k) {
+        var v = props[k];
+        if (v == null || v === false) return;
+        if (k === 'text') el.textContent = v;
+        else if (k === 'class') el.className = v;
+        else if (k.indexOf('on') === 0) el.addEventListener(k.slice(2), v);
+        else if (k === 'value') el.value = v;
+        else if (k === 'checked') el.checked = !!v;
+        else el.setAttribute(k, v === true ? '' : v);
+      });
+      (kids || []).forEach(function (c) { if (c) el.appendChild(typeof c === 'string' ? document.createTextNode(c) : c); });
+      return el;
+    }
+    function label(sec) { for (var i = 0; i < SECTIONS.length; i++) if (SECTIONS[i][0] === sec) return SECTIONS[i][1]; return sec; }
+    function money(p) { return (typeof p === 'number' && isFinite(p)) ? '$' + p.toFixed(2) : 'Ask your server'; }
+    function itemsFor(sec) {
+      return state.items.filter(function (i) { return i.section === sec; })
+        .sort(function (a, b) { return ((a.order || 0) - (b.order || 0)) || String(a.name).localeCompare(String(b.name)); });
+    }
+    function status(msg) { statusEl.textContent = msg || ''; }
+    function pdfLink(text) { return h('a', { class: 'more', href: PDF, text: text }); }
+
+    function renderTabs() {
+      tabsEl.replaceChildren.apply(tabsEl, SECTIONS.map(function (s) {
+        var n = itemsFor(s[0]).length;
+        return h('button', {
+          class: 'fm-tab', type: 'button', role: 'tab', 'aria-selected': s[0] === state.tab ? 'true' : 'false',
+          onclick: function () {
+            state.tab = s[0]; state.editing = null; state.confirmDel = null; status('');
+            try { localStorage.setItem('tops-menu-tab', s[0]); } catch (e) {}
+            render();
+          }
+        }, [s[1], state.live && n ? h('span', { class: 'n', text: String(n) }) : null]);
+      }));
+    }
+
+    function renderSub() {
+      var latest = state.items.reduce(function (m, i) { return i.updatedAt && i.updatedAt > m ? i.updatedAt : m; }, '');
+      if (latest) {
+        var d = new Date(latest);
+        subEl.textContent = 'Prices updated ' + d.toLocaleDateString(undefined, { month: 'long', day: 'numeric', year: 'numeric' }) + '.';
+      } else {
+        subEl.textContent = 'Kept up to date by our staff.';
+      }
+      editBtn.hidden = !state.canEdit;
+      editBtn.textContent = state.editMode ? 'Done editing' : 'Edit menu';
+    }
+
+    function row(item) {
+      var tools = null;
+      if (state.editMode) {
+        tools = h('div', { class: 'fm-tools' }, [
+          h('button', { class: 'fm-small', type: 'button', text: 'Edit', onclick: function () { state.editing = item.id; state.confirmDel = null; status(''); render(); } }),
+          h('button', { class: 'fm-small', type: 'button', text: item.soldOut ? 'Back on the menu' : 'Mark sold out', onclick: function () { toggleOut(item); } })
+        ]);
+      }
+      return h('li', { class: 'fm-item' + (item.soldOut ? ' is-out' : '') }, [
+        h('div', { class: 'fm-line' }, [
+          h('span', { class: 'fm-name', text: item.name || 'Untitled item' }),
+          h('span', { class: 'fm-dots', 'aria-hidden': 'true' }),
+          h('span', { class: 'fm-price', text: money(item.price) })
+        ]),
+        item.desc ? h('p', { class: 'fm-desc', text: item.desc }) : null,
+        item.soldOut ? h('span', { class: 'fm-badge', text: 'Sold out today' }) : null,
+        tools
+      ]);
+    }
+
+    function form(item) {
+      var isNew = !item;
+      var del = null;
+      if (!isNew) {
+        var armed = state.confirmDel === item.id;
+        del = h('button', { class: 'fm-small danger', type: 'button', text: armed ? 'Click again to delete' : 'Delete', onclick: function () {
+          if (state.confirmDel !== item.id) { state.confirmDel = item.id; render(); return; }
+          remove(item);
+        } });
+      }
+      var f = h('form', { class: 'fm-form', onsubmit: function (e) { e.preventDefault(); save(item, f); } }, [
+        h('label', null, ['Item name', h('input', { type: 'text', id: 'fm-name', name: 'name', maxlength: '80', required: true, value: item ? item.name : '' })]),
+        h('label', null, ['Price ($)', h('input', { type: 'number', id: 'fm-price', name: 'price', min: '0', step: '0.01', inputmode: 'decimal', placeholder: '9.99', value: item && typeof item.price === 'number' ? item.price.toFixed(2) : '' })]),
+        h('label', { class: 'full' }, ['Description (optional)', h('input', { type: 'text', id: 'fm-desc', name: 'desc', maxlength: '200', value: item ? item.desc || '' : '' })]),
+        h('label', { class: 'check full' }, [h('input', { type: 'checkbox', id: 'fm-out', name: 'soldOut', checked: item ? item.soldOut : false }), 'Sold out today']),
+        h('div', { class: 'row' }, [
+          h('button', { class: 'btn btn-red', type: 'submit', text: state.saving ? 'Saving…' : (isNew ? 'Add to ' + label(state.tab) : 'Save changes'), disabled: state.saving }),
+          h('button', { class: 'btn btn-line', type: 'button', text: 'Cancel', onclick: function () { state.editing = null; state.confirmDel = null; status(''); render(); } }),
+          del
+        ])
+      ]);
+      return h('li', { class: 'fm-item', style: 'grid-column: 1 / -1; border: 0' }, [f]);
+    }
+
+    function renderList() {
+      var nodes = [];
+      if (!state.live) {
+        nodes.push(h('li', { class: 'fm-empty' }, state.ready
+          ? ['Our full menu is in the ', pdfLink('printed menu (PDF)'), '.']
+          : ["Loading today's menu and prices. You can also open the ", pdfLink('printed menu (PDF)'), '.']));
+      } else {
+        var list = itemsFor(state.tab);
+        if (!list.length && state.editing !== 'new') {
+          nodes.push(h('li', { class: 'fm-empty' }, state.canEdit
+            ? ['No ' + label(state.tab).toLowerCase() + ' items yet. Choose ', h('b', { text: state.editMode ? 'Add an item' : 'Edit menu' }), ' to add the first one with its price.']
+            : ["We're updating our " + label(state.tab).toLowerCase() + ' prices. In the meantime, see the ', pdfLink('printed menu (PDF)'), '.']));
+        }
+        list.forEach(function (item) { nodes.push(state.editMode && state.editing === item.id ? form(item) : row(item)); });
+        if (state.editMode) {
+          nodes.push(state.editing === 'new' ? form(null)
+            : h('li', { class: 'fm-add' }, [h('button', { class: 'btn btn-red', type: 'button', text: 'Add an item', onclick: function () { state.editing = 'new'; state.confirmDel = null; status(''); render(); } })]));
+        }
+      }
+      listEl.replaceChildren.apply(listEl, nodes);
+      if (state.editing) { var first = document.getElementById('fm-name'); if (first) first.focus(); }
+    }
+
+    function render() { renderTabs(); renderSub(); renderList(); }
+
+    function fail(err) {
+      var code = err && err.code;
+      if (code === 'invalid_argument') status("That change didn't save. Only people with edit access can change the menu, and names stay under 80 characters.");
+      else if (code === 'quota_exceeded') status('The menu has reached its size limit. Delete a few old items, then try again.');
+      else status("That change didn't save. Check your connection and try again.");
+    }
+
+    function save(item, f) {
+      var name = f.elements.name.value.trim();
+      var priceRaw = f.elements.price.value.trim();
+      var price = priceRaw === '' ? null : Math.round(Number(priceRaw) * 100) / 100;
+      if (!name) { status('Add a name for this item.'); return; }
+      if (price !== null && (!isFinite(price) || price < 0)) { status('Enter the price as a number, like 9.99.'); return; }
+      var order = item ? (item.order || 0) : itemsFor(state.tab).reduce(function (m, i) { return Math.max(m, i.order || 0); }, 0) + 1;
+      var body = {
+        section: item ? item.section : state.tab,
+        name: name,
+        desc: f.elements.desc.value.trim(),
+        price: price,
+        soldOut: f.elements.soldOut.checked,
+        order: order,
+        updatedAt: new Date().toISOString()
+      };
+      var ref = item ? col.doc(item.id) : col.doc();
+      state.saving = true; render();
+      ref.set(body).then(function () {
+        state.editing = null;
+        status((item ? 'Saved ' : 'Added ') + name + '. Everyone sees the change now.');
+      }, fail).then(function () { state.saving = false; render(); });
+    }
+
+    function toggleOut(item) {
+      col.doc(item.id).update({ soldOut: !item.soldOut, updatedAt: new Date().toISOString() }).then(function () {
+        status(item.name + (item.soldOut ? ' is back on the menu.' : ' is marked sold out for today.'));
+      }, fail);
+    }
+
+    function remove(item) {
+      col.doc(item.id).delete().then(function () {
+        state.editing = null; state.confirmDel = null;
+        status('Deleted ' + item.name + '.');
+        render();
+      }, fail);
+    }
+
+    editBtn.addEventListener('click', function () {
+      state.editMode = !state.editMode; state.editing = null; state.confirmDel = null; status('');
+      render();
+    });
+
+    // On the public site the menu comes from menu.json (read-only)
+    function loadStatic() {
+      fetch('menu.json', { cache: 'no-store' })
+        .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+        .then(function (j) {
+          state.items = (j.items || []).map(function (it, i) {
+            return Object.assign({ id: 's' + i, order: i, updatedAt: j.updated || '' }, it);
+          });
+          state.live = true; state.ready = true; render();
+        })
+        .catch(function () { state.ready = true; render(); });
+    }
+
+    render();
+
+    (async function init() {
+      var db = null, user = null;
+      try { db = window.claude && window.claude.use ? await window.claude.use('db') : null; } catch (e) { db = null; }
+      if (!db) { loadStatic(); return; }
+      col = db.collection('data/menu/items');
+      try { user = await window.claude.use('user'); } catch (e) { user = null; }
+      state.canEdit = user ? await user.canEdit() : false;
+      state.live = true;
+      col.onSnapshot(function (snap) {
+        state.items = snap.docs.map(function (d) { return Object.assign({ id: d.id }, d.data()); });
+        state.ready = true;
+        if (state.editing) { renderTabs(); renderSub(); } else render();
+      }, function () {
+        status('The menu stopped updating. Reload the page to reconnect.');
+      });
+    })();
+  })();
+
+  // Copy phone
+  document.getElementById('copy-phone').addEventListener('click', function (e) {
+    var btn = e.currentTarget, phone = document.getElementById('phone');
+    function selectPhone() {
+      var r = document.createRange(); r.selectNodeContents(phone);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      btn.textContent = 'Selected, press copy';
+    }
+    try {
+      navigator.clipboard.writeText(phone.textContent).then(function () {
+        btn.textContent = 'Copied';
+        setTimeout(function () { btn.textContent = 'Copy number'; }, 1800);
+      }, selectPhone);
+    } catch (err) { selectPhone(); }
+  });
+</script>
+
+</body>
+</html>
