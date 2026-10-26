@@ -355,6 +355,8 @@ p { margin: 0; }
 .socials a { text-decoration: none; font-weight: 600; font-size: .92rem; border: 1px solid var(--line); padding: 8px 14px; border-radius: 999px; }
 .socials a:hover { border-color: var(--ink); }
 @media (max-width: 900px) { .visit { grid-template-columns: 1fr; } }
+.contact { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+@media (max-width: 760px) { .contact { grid-template-columns: 1fr; } }
 
 /* Footer */
 footer { background: var(--trim); color: var(--on-trim); }
@@ -388,6 +390,7 @@ footer .fl { display: flex; flex-wrap: wrap; gap: 18px; }
       <a href="#story">Our Story</a>
       <a href="#events">Parties</a>
       <a href="#visit">Visit</a>
+      <a href="#contact">Contact</a>
     </nav>
     <a class="btn btn-red" href="#order">Order online</a>
   </div>
@@ -649,7 +652,44 @@ footer .fl { display: flex; flex-wrap: wrap; gap: 18px; }
             <a href="https://www.instagram.com/topsrotterdam">Instagram</a>
             <a href="https://twitter.com/topsrotterdam">X</a>
           </div>
-          <p>Now hiring. <a class="more" href="http://topsrotterdam.com/wp-content/uploads/2017/10/Employment-Application.pdf">Job application →</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cornice" aria-hidden="true"></div>
+
+  <section class="section" id="contact">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="label">Contact</span>
+        <h2>Questions, parties or a big order? Get in touch.</h2>
+        <p>Calling is the fastest way to reach us during business hours.</p>
+      </div>
+      <div class="contact">
+        <div class="panel">
+          <span class="label">Call the restaurant</span>
+          <p class="big" id="phone-2">(518) 355-9864</p>
+          <p>Takeout, today's hours, reservations for large groups and same-day questions.</p>
+          <button class="copy" id="copy-phone-2" type="button">Copy number</button>
+        </div>
+        <div class="panel">
+          <span class="label">Send a message</span>
+          <p class="big">Message us on Facebook.</p>
+          <p>Good for questions that can wait a little, like gift ideas or menu details.</p>
+          <a class="more" href="https://m.me/TopsRotterdam">Open Messenger →</a>
+        </div>
+        <div class="panel">
+          <span class="label">Parties &amp; bakery orders</span>
+          <p class="big">Book the back room or order a cake.</p>
+          <p>Call and ask for a manager. Tell us the date, the size of your group and what you're celebrating.</p>
+          <a class="more" href="#events">About private parties →</a>
+        </div>
+        <div class="panel">
+          <span class="label">Work at Tops</span>
+          <p class="big">We're hiring.</p>
+          <p>Fill out the application and bring it in, or drop by and ask for one at the register.</p>
+          <a class="more" href="http://topsrotterdam.com/wp-content/uploads/2017/10/Employment-Application.pdf">Job application (PDF) →</a>
         </div>
       </div>
     </div>
@@ -660,7 +700,7 @@ footer .fl { display: flex; flex-wrap: wrap; gap: 18px; }
   <div class="wrap">
     <a class="logo" href="#home"><img src="images/logo.jpg" alt="Tops" width="200" height="125"></a>
     <div class="fl">
-      <a href="#menu">Menu</a><a href="#bakery">Bakery</a><a href="#gallery">Gallery</a><a href="#story">Our Story</a><a href="#visit">Visit</a>
+      <a href="#menu">Menu</a><a href="#bakery">Bakery</a><a href="#gallery">Gallery</a><a href="#story">Our Story</a><a href="#visit">Visit</a><a href="#contact">Contact</a>
     </div>
     <span>© Tops American Grill, Bakery &amp; Bar · Rotterdam, NY</span>
   </div>
@@ -955,9 +995,10 @@ footer .fl { display: flex; flex-wrap: wrap; gap: 18px; }
     })();
   })();
 
-  // Copy phone
-  document.getElementById('copy-phone').addEventListener('click', function (e) {
-    var btn = e.currentTarget, phone = document.getElementById('phone');
+  // Copy phone (Visit and Contact panels)
+  [['copy-phone', 'phone'], ['copy-phone-2', 'phone-2']].forEach(function (pair) {
+  document.getElementById(pair[0]).addEventListener('click', function (e) {
+    var btn = e.currentTarget, phone = document.getElementById(pair[1]);
     function selectPhone() {
       var r = document.createRange(); r.selectNodeContents(phone);
       var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
@@ -969,6 +1010,7 @@ footer .fl { display: flex; flex-wrap: wrap; gap: 18px; }
         setTimeout(function () { btn.textContent = 'Copy number'; }, 1800);
       }, selectPhone);
     } catch (err) { selectPhone(); }
+  });
   });
 </script>
 
