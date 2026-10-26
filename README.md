@@ -35,4 +35,4 @@ While `items` is empty, the menu section links to the printed PDF menu.
 
 - Confirm hours, the Friday fish fry, and menu details with the restaurant.
 - Photos come from the restaurant's own website and Instagram. Get the owner's OK to use them.
-- The daytime building photo was retouched (blue sky, stains lightened, left wing extended), and the night photo was widened on the left. Tell the owner about these edits.
+- The night building photo was widened on the left and enlarged. Tell the owner about this edit.
